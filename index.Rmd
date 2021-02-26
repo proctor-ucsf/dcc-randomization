@@ -14,8 +14,9 @@ description: "This is a short guide for best (essential!) practices for trial ra
 
 # Welcome! {-}
 
-This is a compendium and guide for best (esssential!) practices in trial randomization and masking. 
+This is a guide for best (essential!) practices in trial randomization and masking. At the Proctor Foundation, we lead many randomized, controlled trials to study intervention effects. Many of our trials are masked (aka "blinded"), whereby treatment allocation is concealed from participants, investigators, and/or outcome assessors. This short guide is a compendium our team's best practices around these activities. 
 
+_**IMPORTANT**_: The randomization and masking steps are among the most important activities in a trial's validity. Jeopardizing one or both can undermine a trial. Team members involved in generating an allocation sequence and masking a trial should work directly with at least one of our faculty biostatisticians.  At present, those faculty members include [Ben Arnold](https://profiles.ucsf.edu/benjamin.arnold) and [Travis Porco](https://profiles.ucsf.edu/travis.porco).
 
 
 ```{r include=FALSE}
