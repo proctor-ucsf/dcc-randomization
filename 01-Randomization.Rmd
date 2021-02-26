@@ -1,0 +1,23 @@
+
+# Randomization {#randomization}
+
+_Contributors: Ben Arnold_
+
+
+## Introduction {#randomization_intro}
+
+Random allocation of treatment to units (individuals or clusters) is perhaps the single strongest design tool we have in epidemiology and clinical research to estimate the causal effect of a treatment on outcomes.  Randomization ensures that individuals who receive treatment are, on average, exchangeable with those who do not [@Altman1999-zc]. Without randomization, individuals who seek or receive treatment are almost inevitably different from those who do not, often in immeasurable ways. This leads to confounding of the treatment-outcome relationship. 
+
+Importantly [@Altman1999-zc]:
+
+> "The term random does not mean the same as haphazard but has a precise technical meaning. By random allocation we mean that each patient has a known chance, usually an equal chance, of being given each treatment, but the treatment to be given cannot be predicted."
+
+
+
+
+
+
+
+## References {-}
+
+
