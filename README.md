@@ -1,2 +1,2 @@
 # dcc-randomization-masking
-Proctor DCC Best Practices for Trial Randomization and Masking
+F.I. Proctor Foundation Best Practices for Trial Randomization and Masking
