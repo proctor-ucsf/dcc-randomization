@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Francis I. Proctor Foundation Guide to Randomization | Francis I. Proctor Foundation   Guide to Randomization</title>
+  <title>Chapter 2 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization</title>
   <meta name="description" content="This is a short guide for best (essential!) practices for trial randomization." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Francis I. Proctor Foundation Guide to Randomization | Francis I. Proctor Foundation   Guide to Randomization" />
+  <meta property="og:title" content="Chapter 2 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Francis I. Proctor Foundation Guide to Randomization | Francis I. Proctor Foundation   Guide to Randomization" />
+  <meta name="twitter:title" content="Chapter 2 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization" />
   
   <meta name="twitter:description" content="This is a short guide for best (essential!) practices for trial randomization." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="overview.html"/>
 
-<link rel="next" href="overview.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -98,24 +98,95 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Francis I. Proctor Foundation <br> Guide to Randomization</h1>
-<p class="author"><em>Contributors: Ben Arnold</em></p>
-<p class="date"><em>Compiled: 2021-02-26</em></p>
-</div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome!</h1>
-<p>This is a guide for best (essential!) practices in trial randomization and masking. At the Proctor Foundation, we lead many randomized, controlled trials to study intervention effects. Many of our trials are masked (aka “blinded”), whereby treatment allocation is concealed from participants, investigators, and/or outcome assessors. This short guide is a compendium our team’s best practices around these activities.</p>
-<p><em><strong>IMPORTANT</strong></em>: The randomization and masking steps are among the most important activities to ensure a trial’s validity. Jeopardizing one or both can undermine a trial. Team members involved in generating an allocation sequence and masking a trial should work directly with at least one of our faculty biostatisticians. At present, those faculty members include <a href="https://profiles.ucsf.edu/benjamin.arnold">Ben Arnold</a> and <a href="https://profiles.ucsf.edu/travis.porco">Travis Porco</a>.</p>
+<div id="directory" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Creating a Randomization Directory</h1>
+<p><em>Contributors: Ben Arnold</em></p>
+<p>The files used to generate a randomization sequence should live in one directory. They should be clearly labeled. They should include lots of comments and documentation to orient a new reader to their contents. The directory should include, at minimum:</p>
+<table>
+<caption><span id="tab:dirchecklist">Table 2.1: </span> Checklist for the Randomization Directory</caption>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="left">Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">__ 1.</td>
+<td align="left">A metadata README file that describes all files in the directory.</td>
+</tr>
+<tr class="even">
+<td align="center">__ 2.</td>
+<td align="left">The script that generates the randomization sequence.</td>
+</tr>
+<tr class="odd">
+<td align="center">__ 3.</td>
+<td align="left">Randomization diagnostics (typically an output file from the script).</td>
+</tr>
+<tr class="even">
+<td align="center">__ 4.</td>
+<td align="left">The randomization sequence(s) generated, stored as <code>.csv</code> files.</td>
+</tr>
+<tr class="odd">
+<td align="center">__ 5.</td>
+<td align="left">The key that maps group labels to masked codes (masked trials only)</td>
+</tr>
+</tbody>
+</table>
+<p>For unmasked randomization, we recommend creating a subdirectory within a trial’s parent directory called <code>Randomization</code>. In the hypothetical <code>MyTrial</code> study below, create a new subdirectory nested within:</p>
+<blockquote>
+<p><code>~/Box Sync/MyTrial/Randomization</code></p>
+</blockquote>
+<p>If the randomization sequence is masked, then we need to keep the randomization files separate from the main trial directory. Otherwise team members who should not know the mapping between treatment labels and masking codes could discover the link. The sequence could also be discoverable, and if a team member is involved in treating patients that could bias the allocation.</p>
+<p>In masked trials, we recommend creating a parallel, shadow directory for the trial with restricted access permissions. We typically use the suffix <code>-unmasked-materials</code> to identify the restricted access directories. They should live on the same encrypted server as the trial’s main directory, e.g.:</p>
+<blockquote>
+<p><code>~/Box Sync/MyTrial-unmasked-materials/Randomization</code></p>
+</blockquote>
+<p>Note that an <code>-unmasked-materials</code> directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial’s Data and Safety Monitoring Committee.</p>
+<table>
+<caption><span id="tab:unmaskeddir">Table 2.2: </span> Key Points for Restricted Access Directories in Masked Trials</caption>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Key Points</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left">The trial’s biostatistician should control access to a trial’s directory of unmasked materials</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left">At least 3 team members should have access to unmasked materials at all times</td>
+</tr>
+</tbody>
+</table>
+<div id="references-1" class="section level2 unnumbered">
+<h2>References</h2>
 
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Altman1999-zc" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Altman DG, Bland MJ. Treatment allocation in controlled trials: Why randomise? BMJ. 1999;318: 1209–1209. </div>
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="overview.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

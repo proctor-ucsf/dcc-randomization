@@ -37,7 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Francis I. Proctor Foundation   Guide to Randomization and Masking},
+  pdftitle={Francis I. Proctor Foundation   Guide to Randomization},
   pdfauthor={Contributors: Ben Arnold},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -76,7 +76,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Francis I. Proctor Foundation Guide to Randomization and Masking}
+\title{Francis I. Proctor Foundation Guide to Randomization}
 \author{Contributors: Ben Arnold}
 \date{Compiled: 2021-02-26}
 
@@ -95,13 +95,10 @@ This is a guide for best (essential!) practices in trial randomization and maski
 
 \emph{\textbf{IMPORTANT}}: The randomization and masking steps are among the most important activities to ensure a trial's validity. Jeopardizing one or both can undermine a trial. Team members involved in generating an allocation sequence and masking a trial should work directly with at least one of our faculty biostatisticians. At present, those faculty members include \href{https://profiles.ucsf.edu/benjamin.arnold}{Ben Arnold} and \href{https://profiles.ucsf.edu/travis.porco}{Travis Porco}.
 
-\hypertarget{randomization}{%
-\chapter{Randomization}\label{randomization}}
+\hypertarget{overview}{%
+\chapter{Overview and Introduction}\label{overview}}
 
 \emph{Contributors: Ben Arnold}
-
-\hypertarget{randomization_intro}{%
-\section{Introduction}\label{randomization_intro}}
 
 Random allocation of treatment to units (individuals or clusters) is perhaps the single strongest design tool we have in epidemiology and clinical research to estimate the causal effect of a treatment on outcomes. Randomization ensures that individuals who receive treatment are, on average, exchangeable with those who do not \citep{Altman1999-zc}. Without randomization, individuals who seek or receive treatment are almost inevitably different from those who do not, often in immeasurable ways. This leads to confounding of the treatment-outcome relationship.
 
@@ -110,13 +107,6 @@ Importantly \citep{Altman1999-zc}:
 \begin{quote}
 ``The term random does not mean the same as haphazard but has a precise technical meaning. By random allocation we mean that each patient has a known chance, usually an equal chance, of being given each treatment, but the treatment to be given cannot be predicted.''
 \end{quote}
-
-Below, we provide guidance on how to generate random sequences.
-
-Many trials are masked, where the treatment group is kept secret from participants and/or investigators. The next chapter focuses on best practices for masking.
-
-\hypertarget{randomization_overview}{%
-\section{Randomization Overview}\label{randomization_overview}}
 
 In practice, generating an allocation sequence involves the following steps:
 
@@ -176,19 +166,16 @@ Set a new seed, and generate the final sequence. Store the sequence in a \texttt
 \bottomrule
 \end{longtable}
 
-\hypertarget{computing}{%
-\section{A few comments on computing}\label{computing}}
+This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
 
-Like all of our data science workflows, generating a random sequence needs to be transparent and reproducible. See Proctor's handbook on data science. The principles we describe there are germane for randomization sequences as well!
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
 
-\url{https://proctor-ucsf.github.io/dcc-handbook/intro.html}
+\hypertarget{directory}{%
+\chapter{Creating a Randomization Directory}\label{directory}}
 
-All of the examples in this guide use R software. There are surely many other effective ways to generate sequences in other software, but R includes many convenient functions for pseudo-random number generation.
-
-Our advice for generating the sequence is to not rely on any packages beyond base \texttt{R}. The R language and packages evolve rapidly. Using base R ensures that functions will behave consistently over time. For example, many tidyverse packages such as the \href{https://dplyr.tidyverse.org/}{\texttt{dplyr}} package are incredible for data manipulation. \href{https://dplyr.tidyverse.org/}{\texttt{dplyr}} includes many convenient pseudo-random sampling routines, but as of this writing its syntax rapidly evolves -- some commonly used functions seem to be replaced or deprecated every few months. This makes the code more fragile. As an exception, we do use \href{https://ggplot2.tidyverse.org/}{\texttt{ggplot2}} for graphics in randomization diagnostics examples below.
-
-\hypertarget{creating-a-randomization-directory}{%
-\section{Creating a Randomization Directory}\label{creating-a-randomization-directory}}
+\emph{Contributors: Ben Arnold}
 
 The files used to generate a randomization sequence should live in one directory. They should be clearly labeled. They should include lots of comments and documentation to orient a new reader to their contents. The directory should include, at minimum:
 
@@ -285,20 +272,8 @@ At least 3 team members should have access to unmasked materials at all times\st
 \bottomrule
 \end{longtable}
 
-\hypertarget{unrestricted-randomization}{%
-\section{Unrestricted randomization}\label{unrestricted-randomization}}
-
-\hypertarget{blocked-randomization}{%
-\section{Blocked randomization}\label{blocked-randomization}}
-
-\hypertarget{stratified-randomization}{%
-\section{Stratified randomization}\label{stratified-randomization}}
-
-\hypertarget{randomization-diagnostics}{%
-\section{Randomization diagnostics}\label{randomization-diagnostics}}
-
-\hypertarget{references}{%
-\section*{References}\label{references}}
+\hypertarget{references-1}{%
+\section*{References}\label{references-1}}
 \addcontentsline{toc}{section}{References}
 
   \bibliography{book.bib,packages.bib,articles.bib}

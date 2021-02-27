@@ -1,0 +1,33 @@
+
+# Overview and Introduction {#overview}
+
+_Contributors: Ben Arnold_
+
+Random allocation of treatment to units (individuals or clusters) is perhaps the single strongest design tool we have in epidemiology and clinical research to estimate the causal effect of a treatment on outcomes.  Randomization ensures that individuals who receive treatment are, on average, exchangeable with those who do not [@Altman1999-zc]. Without randomization, individuals who seek or receive treatment are almost inevitably different from those who do not, often in immeasurable ways. This leads to confounding of the treatment-outcome relationship. 
+
+Importantly [@Altman1999-zc]:
+
+> "The term random does not mean the same as haphazard but has a precise technical meaning. By random allocation we mean that each patient has a known chance, usually an equal chance, of being given each treatment, but the treatment to be given cannot be predicted."
+
+
+In practice, generating an allocation sequence involves the following steps:
+
+Steps |  |
+:----:|:--------------------|
+1    | Finalize the study design and randomization plan, including specifics about allocation ratio, any blocking/stratification, and masking.  |
+2  | Create a randomization subdirectory within the trial's project directory to save the randomization files. If randomization is masked, you will need to save the randomization files in a separate, tightly controlled directory (sync'd to the cloud for secure backup).|
+3    | Write a script to generate a random sequence. If the trial is masked, use temporary letters. |
+4    | Assess randomization diagnostics to ensure that the randomization sequence behaves as expected. |
+5    | Share the randomization sequence and diagnostics with the PI and trial's biostatistician. Have at least 2 people review the randomization script and diagnostics to check for any errors. |
+6    | If the trial is masked, work with the trial's unmasked biostatistician to assign the final letters to each treatment group using the agreed upon, private mapping between letters and treatment group. |
+7    | Set a new seed, and generate the final sequence. Store the sequence in a `.csv` file in the randomization directory and lock the file to ensure it cannot be over-written. |
+
+Table: (\#tab:randomizationsteps) Randomization Steps
+
+
+This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
+
+
+## References {-}
+
+
