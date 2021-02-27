@@ -168,9 +168,20 @@ Set a new seed, and generate the final sequence. Store the sequence in a \texttt
 
 This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
+This guide does not currently include guidance for advanced topics, such as response-adaptive allocation.
+
+\hypertarget{computing}{%
+\chapter{A few comments on computing}\label{computing}}
+
+\emph{Contributors: Ben Arnold}
+
+Like all of our data science workflows, generating a random sequence needs to be transparent and reproducible. See Proctor's handbook on data science. The principles we describe there are germane for randomization sequences as well!
+
+\url{https://proctor-ucsf.github.io/dcc-handbook/intro.html}
+
+All of the examples in this guide use R software. There are surely many other effective ways to generate sequences in other software, but R includes many convenient functions for pseudo-random number generation.
+
+Our advice for generating the sequence is to not rely on any packages beyond base \texttt{R}. The R language and packages evolve rapidly. Using base R ensures that functions will behave consistently over time. For example, many tidyverse packages such as the \href{https://dplyr.tidyverse.org/}{\texttt{dplyr}} package are incredible for data manipulation. \href{https://dplyr.tidyverse.org/}{\texttt{dplyr}} includes many convenient pseudo-random sampling routines, but as of this writing its syntax rapidly evolves -- some commonly used functions seem to be replaced or deprecated every few months. This makes the code more fragile. As an exception, we do use \href{https://ggplot2.tidyverse.org/}{\texttt{ggplot2}} for graphics in randomization diagnostics examples below.
 
 \hypertarget{directory}{%
 \chapter{Creating a Randomization Directory}\label{directory}}
@@ -272,9 +283,32 @@ At least 3 team members should have access to unmasked materials at all times\st
 \bottomrule
 \end{longtable}
 
-\hypertarget{references-1}{%
-\section*{References}\label{references-1}}
-\addcontentsline{toc}{section}{References}
+\hypertarget{sequences}{%
+\chapter{Generating Randomization Sequences}\label{sequences}}
+
+\emph{Contributors: Ben Arnold}
+
+\hypertarget{unrestricted-randomization}{%
+\section{Unrestricted randomization}\label{unrestricted-randomization}}
+
+\hypertarget{blocked-randomization}{%
+\section{Blocked randomization}\label{blocked-randomization}}
+
+\hypertarget{stratified-randomization}{%
+\section{Stratified randomization}\label{stratified-randomization}}
+
+\hypertarget{unequal-allocation}{%
+\section{Unequal allocation}\label{unequal-allocation}}
+
+\hypertarget{diagnostics}{%
+\chapter{Randomization Diagnostics}\label{diagnostics}}
+
+\emph{Contributors: Ben Arnold}
+
+\hypertarget{masking}{%
+\chapter{Masking}\label{masking}}
+
+\emph{Contributors: Ben Arnold}
 
   \bibliography{book.bib,packages.bib,articles.bib}
 

@@ -27,7 +27,5 @@ Table: (\#tab:randomizationsteps) Randomization Steps
 
 This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
 
-
-## References {-}
-
+This guide does not currently include guidance for advanced topics, such as response-adaptive allocation.
 

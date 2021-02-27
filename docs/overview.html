@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="directory.html"/>
+<link rel="next" href="computing.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -70,14 +70,19 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
-<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview and Introduction</a>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview and Introduction</a></li>
+<li class="chapter" data-level="2" data-path="computing.html"><a href="computing.html"><i class="fa fa-check"></i><b>2</b> A few comments on computing</a></li>
+<li class="chapter" data-level="3" data-path="directory.html"><a href="directory.html"><i class="fa fa-check"></i><b>3</b> Creating a Randomization Directory</a></li>
+<li class="chapter" data-level="4" data-path="sequences.html"><a href="sequences.html"><i class="fa fa-check"></i><b>4</b> Generating Randomization Sequences</a>
 <ul>
-<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.1" data-path="sequences.html"><a href="sequences.html#unrestricted-randomization"><i class="fa fa-check"></i><b>4.1</b> Unrestricted randomization</a></li>
+<li class="chapter" data-level="4.2" data-path="sequences.html"><a href="sequences.html#blocked-randomization"><i class="fa fa-check"></i><b>4.2</b> Blocked randomization</a></li>
+<li class="chapter" data-level="4.3" data-path="sequences.html"><a href="sequences.html#stratified-randomization"><i class="fa fa-check"></i><b>4.3</b> Stratified randomization</a></li>
+<li class="chapter" data-level="4.4" data-path="sequences.html"><a href="sequences.html#unequal-allocation"><i class="fa fa-check"></i><b>4.4</b> Unequal allocation</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="directory.html"><a href="directory.html"><i class="fa fa-check"></i><b>2</b> Creating a Randomization Directory</a>
-<ul>
-<li class="chapter" data-level="" data-path="directory.html"><a href="directory.html#references-1"><i class="fa fa-check"></i>References</a></li>
-</ul></li>
+<li class="chapter" data-level="5" data-path="diagnostics.html"><a href="diagnostics.html"><i class="fa fa-check"></i><b>5</b> Randomization Diagnostics</a></li>
+<li class="chapter" data-level="6" data-path="masking.html"><a href="masking.html"><i class="fa fa-check"></i><b>6</b> Masking</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -101,8 +106,8 @@
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Overview and Introduction</h1>
 <p><em>Contributors: Ben Arnold</em></p>
-<p>Random allocation of treatment to units (individuals or clusters) is perhaps the single strongest design tool we have in epidemiology and clinical research to estimate the causal effect of a treatment on outcomes. Randomization ensures that individuals who receive treatment are, on average, exchangeable with those who do not <span class="citation">[<a href="directory.html#ref-Altman1999-zc" role="doc-biblioref">1</a>]</span>. Without randomization, individuals who seek or receive treatment are almost inevitably different from those who do not, often in immeasurable ways. This leads to confounding of the treatment-outcome relationship.</p>
-<p>Importantly <span class="citation">[<a href="directory.html#ref-Altman1999-zc" role="doc-biblioref">1</a>]</span>:</p>
+<p>Random allocation of treatment to units (individuals or clusters) is perhaps the single strongest design tool we have in epidemiology and clinical research to estimate the causal effect of a treatment on outcomes. Randomization ensures that individuals who receive treatment are, on average, exchangeable with those who do not <span class="citation">[<a href="references.html#ref-Altman1999-zc" role="doc-biblioref">1</a>]</span>. Without randomization, individuals who seek or receive treatment are almost inevitably different from those who do not, often in immeasurable ways. This leads to confounding of the treatment-outcome relationship.</p>
+<p>Importantly <span class="citation">[<a href="references.html#ref-Altman1999-zc" role="doc-biblioref">1</a>]</span>:</p>
 <blockquote>
 <p>“The term random does not mean the same as haphazard but has a precise technical meaning. By random allocation we mean that each patient has a known chance, usually an equal chance, of being given each treatment, but the treatment to be given cannot be predicted.”</p>
 </blockquote>
@@ -151,10 +156,8 @@
 </tbody>
 </table>
 <p>This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).</p>
-<div id="references" class="section level2 unnumbered">
-<h2>References</h2>
+<p>This guide does not currently include guidance for advanced topics, such as response-adaptive allocation.</p>
 
-</div>
 </div>
             </section>
 
@@ -162,7 +165,7 @@
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="directory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="computing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

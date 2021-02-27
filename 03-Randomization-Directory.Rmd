@@ -37,7 +37,3 @@ Note that an `-unmasked-materials` directory can contain other, sensitive, restr
 
 Table: (\#tab:unmaskeddir) Key Points for Restricted Access Directories in Masked Trials
 
-
-## References {-}
-
-

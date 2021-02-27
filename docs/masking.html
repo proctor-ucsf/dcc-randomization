@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization</title>
+  <title>Chapter 6 Masking | Francis I. Proctor Foundation   Guide to Randomization</title>
   <meta name="description" content="This is a short guide for best (essential!) practices for trial randomization." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization" />
+  <meta property="og:title" content="Chapter 6 Masking | Francis I. Proctor Foundation   Guide to Randomization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Creating a Randomization Directory | Francis I. Proctor Foundation   Guide to Randomization" />
+  <meta name="twitter:title" content="Chapter 6 Masking | Francis I. Proctor Foundation   Guide to Randomization" />
   
   <meta name="twitter:description" content="This is a short guide for best (essential!) practices for trial randomization." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="computing.html"/>
-<link rel="next" href="sequences.html"/>
+<link rel="prev" href="diagnostics.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -103,78 +103,9 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="directory" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Creating a Randomization Directory</h1>
+<div id="masking" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Masking</h1>
 <p><em>Contributors: Ben Arnold</em></p>
-<p>The files used to generate a randomization sequence should live in one directory. They should be clearly labeled. They should include lots of comments and documentation to orient a new reader to their contents. The directory should include, at minimum:</p>
-<table>
-<caption><span id="tab:dirchecklist">Table 3.1: </span> Checklist for the Randomization Directory</caption>
-<colgroup>
-<col width="22%" />
-<col width="77%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"></th>
-<th align="left">Checklist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">__ 1.</td>
-<td align="left">A metadata README file that describes all files in the directory.</td>
-</tr>
-<tr class="even">
-<td align="center">__ 2.</td>
-<td align="left">The script that generates the randomization sequence.</td>
-</tr>
-<tr class="odd">
-<td align="center">__ 3.</td>
-<td align="left">Randomization diagnostics (typically an output file from the script).</td>
-</tr>
-<tr class="even">
-<td align="center">__ 4.</td>
-<td align="left">The randomization sequence(s) generated, stored as <code>.csv</code> files.</td>
-</tr>
-<tr class="odd">
-<td align="center">__ 5.</td>
-<td align="left">The key that maps group labels to masked codes (masked trials only)</td>
-</tr>
-</tbody>
-</table>
-<p>For unmasked randomization, we recommend creating a subdirectory within a trial’s parent directory called <code>Randomization</code>. In the hypothetical <code>MyTrial</code> study below, create a new subdirectory nested within:</p>
-<blockquote>
-<p><code>~/Box Sync/MyTrial/Randomization</code></p>
-</blockquote>
-<p>If the randomization sequence is masked, then we need to keep the randomization files separate from the main trial directory. Otherwise team members who should not know the mapping between treatment labels and masking codes could discover the link. The sequence could also be discoverable, and if a team member is involved in treating patients that could bias the allocation.</p>
-<p>In masked trials, we recommend creating a parallel, shadow directory for the trial with restricted access permissions. We typically use the suffix <code>-unmasked-materials</code> to identify the restricted access directories. They should live on the same encrypted server as the trial’s main directory, e.g.:</p>
-<blockquote>
-<p><code>~/Box Sync/MyTrial-unmasked-materials/Randomization</code></p>
-</blockquote>
-<p>Note that an <code>-unmasked-materials</code> directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial’s Data and Safety Monitoring Committee.</p>
-<table>
-<caption><span id="tab:unmaskeddir">Table 3.2: </span> Key Points for Restricted Access Directories in Masked Trials</caption>
-<colgroup>
-<col width="22%" />
-<col width="77%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Key Points</th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">1</td>
-<td align="left">The trial’s biostatistician should control access to a trial’s directory of unmasked materials</td>
-</tr>
-<tr class="even">
-<td align="center">2</td>
-<td align="left">At least 3 team members should have access to unmasked materials at all times</td>
-</tr>
-</tbody>
-</table>
 
 </div>
             </section>
@@ -182,8 +113,8 @@
           </div>
         </div>
       </div>
-<a href="computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sequences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="diagnostics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

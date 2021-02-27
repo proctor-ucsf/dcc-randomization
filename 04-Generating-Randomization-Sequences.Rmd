@@ -1,0 +1,17 @@
+
+# Generating Randomization Sequences {#sequences}
+
+_Contributors: Ben Arnold_
+
+
+## Unrestricted randomization
+
+
+## Blocked randomization
+
+
+## Stratified randomization
+
+
+## Unequal allocation
+
