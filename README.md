@@ -1,4 +1,4 @@
-# dcc-randomization-masking
+# dcc-randomization
 F.I. Proctor Foundation Best Practices for Trial Randomization and Masking
 
 ## Access
