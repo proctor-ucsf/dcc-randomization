@@ -1,2 +1,12 @@
+tab:randomizationsteps
+tab:dirchecklist
+tab:unmaskeddir
 randomization
 randomization_intro
+randomization_overview
+computing
+creating-a-randomization-directory
+unrestricted-randomization
+blocked-randomization
+stratified-randomization
+randomization-diagnostics
