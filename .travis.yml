@@ -4,10 +4,6 @@ language: r
 cache: packages
 pandoc_version: 2.9.2.1
 
-env:
-  global:
-    - secure: b470c9391835ed89e79d8d5a1ef52f9829d912e2
-
 addons:
   apt:
     packages:
