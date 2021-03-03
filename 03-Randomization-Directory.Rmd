@@ -6,15 +6,16 @@ _Contributors: Ben Arnold_
 
 The files used to generate a randomization sequence should live in one directory. They should be clearly labeled. They should include lots of comments and documentation to orient a new reader to their contents. The directory should include, at minimum:
 
-|  | Checklist|
+| Item  | |
 :----:|:--------------------|
-__ 1. |  A metadata README file that describes all files in the directory. |
-__ 2. |  The script that generates the randomization sequence. | 
-__ 3. |  Randomization diagnostics (typically an output file from the script). | 
-__ 4. |  The randomization sequence(s) generated, stored as `.csv` files. | 
-__ 5. |  The key that maps group labels to masked codes (masked trials only) | 
+____ 1. |  A metadata README file that describes all files in the directory. |
+____ 2. |  The script that generates the randomization sequence(s). | 
+____ 3. |  Randomization diagnostics (typically an output file from the script). | 
+____ 4. |  The randomization sequence(s) generated, stored as `.csv` files. | 
+____ 5. |  The key that maps group labels to masked codes (masked trials only) | 
+____ 6. |  A list of team members with access to the masked codes (masked trials only) and randomization sequence file(s) |
 
-Table: (\#tab:dirchecklist) Checklist for the Randomization Directory
+Table: (\#tab:dirchecklist) Checklist of items that should be in the Randomization Directory
 
 
 For unmasked randomization, we recommend creating a subdirectory within a trial's parent directory called `Randomization`.  In the hypothetical `MyTrial` study below, create a new subdirectory nested within:
@@ -27,7 +28,11 @@ In masked trials, we recommend creating a parallel, shadow directory for the tri
 
 > `~/Box Sync/MyTrial-unmasked-materials/Randomization`
 
-Note that an `-unmasked-materials` directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial's Data and Safety Monitoring Committee.
+Note that an `-unmasked-materials` directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial's Data and Safety Monitoring Committee, and the primary analysis files/results up until the trial is unmasked.
+
+We recommend the `-unmasked-materials` directory reside on a secure, cloud server that meets UCSF's IT security standards.  At this time, that includes Box and Microsoft OneDrive. The trial's biostatistician should "own" the directory and should carefully control team member access. Restrict permissions/access to only team members who should have access (item #6, above).  Do not create a shareable link to the directory or individual files within the directory.
+
+If the randomization script is developed on GitHub, then the trial should maintain a secure repostitory that includes unmasked materials and is highly restricted.  Additional details in the chapter on [Masking](#masking).
 
 
  | Key Points |
