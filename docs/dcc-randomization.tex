@@ -42,6 +42,46 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -78,7 +118,7 @@
 
 \title{Francis I. Proctor Foundation Guide to Randomization}
 \author{Contributors: Ben Arnold}
-\date{Compiled: 2021-02-26}
+\date{Compiled: 2021-03-03}
 
 \begin{document}
 \maketitle
@@ -168,6 +208,8 @@ Set a new seed, and generate the final sequence. Store the sequence in a \texttt
 
 This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
 
+Additionally, the guide will cover the important topics of \protect\hyperlink{masking}{Masking} and \protect\hyperlink{allocationconcealment}{Allocation Concealment}, which are key steps to ensuring the validity of the randomization sequence in the conduct of the trial.
+
 This guide does not currently include guidance for advanced topics, such as response-adaptive allocation.
 
 \hypertarget{computing}{%
@@ -191,47 +233,52 @@ Our advice for generating the sequence is to not rely on any packages beyond bas
 The files used to generate a randomization sequence should live in one directory. They should be clearly labeled. They should include lots of comments and documentation to orient a new reader to their contents. The directory should include, at minimum:
 
 \begin{longtable}[]{@{}cl@{}}
-\caption{\label{tab:dirchecklist} Checklist for the Randomization Directory}\tabularnewline
+\caption{\label{tab:dirchecklist} Checklist of items that should be in the Randomization Directory}\tabularnewline
 \toprule
 \begin{minipage}[b]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\strut
+Item\strut
 \end{minipage} & \begin{minipage}[b]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
-Checklist\strut
+\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \begin{minipage}[b]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\strut
+Item\strut
 \end{minipage} & \begin{minipage}[b]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
-Checklist\strut
+\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\_\_ 1.\strut
+\_\_\_\_ 1.\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
 A metadata README file that describes all files in the directory.\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\_\_ 2.\strut
+\_\_\_\_ 2.\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
-The script that generates the randomization sequence.\strut
+The script that generates the randomization sequence(s).\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\_\_ 3.\strut
+\_\_\_\_ 3.\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
 Randomization diagnostics (typically an output file from the script).\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\_\_ 4.\strut
+\_\_\_\_ 4.\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
 The randomization sequence(s) generated, stored as \texttt{.csv} files.\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
-\_\_ 5.\strut
+\_\_\_\_ 5.\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
 The key that maps group labels to masked codes (masked trials only)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.22}}\centering
+\_\_\_\_ 6.\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.78}}\raggedright
+A list of team members with access to the masked codes (masked trials only) and randomization sequence file(s)\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
@@ -250,7 +297,11 @@ In masked trials, we recommend creating a parallel, shadow directory for the tri
 \texttt{\textasciitilde{}/Box\ Sync/MyTrial-unmasked-materials/Randomization}
 \end{quote}
 
-Note that an \texttt{-unmasked-materials} directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial's Data and Safety Monitoring Committee.
+Note that an \texttt{-unmasked-materials} directory can contain other, sensitive, restricted access materials. Such as: interim analyses requested by the trial's Data and Safety Monitoring Committee, and the primary analysis files/results up until the trial is unmasked.
+
+We recommend the \texttt{-unmasked-materials} directory reside on a secure, cloud server that meets UCSF's IT security standards. At this time, that includes Box and Microsoft OneDrive. The trial's biostatistician should ``own'' the directory and should carefully control team member access. Restrict permissions/access to only team members who should have access (item \#6, above). Do not create a shareable link to the directory or individual files within the directory.
+
+If the randomization script is developed on GitHub, then the trial should maintain a secure repostitory that includes unmasked materials and is highly restricted. Additional details in the chapter on \protect\hyperlink{masking}{Masking}.
 
 \begin{longtable}[]{@{}cl@{}}
 \caption{\label{tab:unmaskeddir} Key Points for Restricted Access Directories in Masked Trials}\tabularnewline
@@ -288,8 +339,172 @@ At least 3 team members should have access to unmasked materials at all times\st
 
 \emph{Contributors: Ben Arnold}
 
-\hypertarget{unrestricted-randomization}{%
-\section{Unrestricted randomization}\label{unrestricted-randomization}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This chapter includes guides for specific types of randomization. It includes code snippets to illustrate the different types of randomization. In the examples below, we focus on trials with two groups and equal allocation. Multi-arm trials are conceptually similar. Unequal allocation is similar as well, but raises particular issues around masking, described in the \protect\hyperlink{masking}{Masking} chapter.
+
+In all of the examples, below, we will use masked examples with 2 letter per arm (so 4 letters total). The rationale for 2+ letters per arm is that if a single letter is accidentally unmasked, then the entire trial will not be unmasked.
+
+These examples will carry forward into the next chapter on \protect\hyperlink{randomizationdiagnostics}{Randomization Diagnostics}. The template files stored in this guide's Github respository (\textbf{TBD}) provide complete examples of how to put everything together.
+
+\textbf{Essential background reading:}
+
+Altman, D. G. \& Martin Bland, J. Treatment allocation in controlled trials: why randomise? BMJ 318, 1209--1209 (1999). \url{https://pubmed.ncbi.nlm.nih.gov/10221955/} \citep{Altman1999-zc}
+
+Altman, D. G. \& Bland, J. M. How to randomise. BMJ 319, 703--704 (1999). \url{https://pubmed.ncbi.nlm.nih.gov/10480833/} \citep{Altman1999-da}
+
+Schulz, K. F. \& Grimes, D. A. Generation of allocation sequences in randomised trials: chance, not choice. Lancet 359, 515--519 (2002). \url{https://pubmed.ncbi.nlm.nih.gov/11853818/} \citep{Schulz2002-jf}
+
+\hypertarget{simple-randomization}{%
+\section{Simple randomization}\label{simple-randomization}}
+
+\begin{quote}
+\emph{No other allocation generation approach, irrespective of its complexity and sophistication, surpasses the unpredictability and bias prevention of simple randomisation.}
+\end{quote}
+
+High praise from masters of clinical trials! \citep{Schulz2002-jf} Simple (unrestricted) randomization is the purest form of randomization. Patients (or clusters) are allocated to each arm with a known (usually equal) probability. For larger trials (hundreds of units) without specific design considerations this might be just the right tool. Many trials led by Proctor faculty favor simple randomization.
+
+Schulz and Grimes highlight a downside, which can be particularly germane for smaller trials. With simple randomization, at any point in the sequence the numbers of patients allocated to each treatment group will probably differ, which is not a major problem in terms of statistical efficiency (though perfectly balanced is statistically ideal). For a two-arm trial, the chance of pronounced imbalance becomes negligible with trial sizes greater than 200 \citep{Lachin1988-gg, Schulz2002-jf}. But, if 20 participants are randomized with equal probability to two treatment groups, the chance of a 12:8 split (i.e., 60\% A, 40\% B) or worse is approximately 50\%. For 100 participants, the chance of the same ratio (60:40 split) or worse is only 5\% \citep{Friedman2015-ri}. For smaller trials and multi-center trials this chance imbalance could be a problem, and so many trials use blocking and/or stratification in the randomization sequence.
+
+Here is an example of generating a simple randomization sequence:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Example of simple randomization}
+\CommentTok{\#}
+\CommentTok{\# 2 arm trial}
+\CommentTok{\# 2 letters per arm (masked)}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# create a list of 1000 IDs.}
+\CommentTok{\# in a real trial, we may already}
+\CommentTok{\# have a list or sampling frame }
+\CommentTok{\# to work with }
+\CommentTok{\#}
+\CommentTok{\# pro tip: always ensure your IDs start with a character}
+\CommentTok{\# to prevent accidental conversion to numeric variables!}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{nobs }\OtherTok{\textless{}{-}} \DecValTok{1000}
+\NormalTok{id }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"ID"}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\NormalTok{nobs)}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Identify letters for}
+\CommentTok{\# the randomization}
+\CommentTok{\#}
+\CommentTok{\# In a masked trial, we would}
+\CommentTok{\# start with placeholder letters}
+\CommentTok{\# to vet the sequence generation}
+\CommentTok{\# and then change them for the}
+\CommentTok{\# final randomization.}
+\CommentTok{\# See step 3 in the Overview}
+\CommentTok{\#}
+\CommentTok{\# In this example, we use}
+\CommentTok{\# A, B, T, V}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{rand\_letters }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"T"}\NormalTok{,}\StringTok{"V"}\NormalTok{)}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# set a seed}
+\CommentTok{\# }
+\CommentTok{\# this is essential for }
+\CommentTok{\# creating a reproducible }
+\CommentTok{\# sequence!  After vetting the}
+\CommentTok{\# randomization with the broader}
+\CommentTok{\# study team (steps 4{-}5 in the Overview), }
+\CommentTok{\# we can change the seed to create a new}
+\CommentTok{\# (protected) sequence}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# generate the sequence}
+\CommentTok{\#}
+\CommentTok{\# the sample() function}
+\CommentTok{\# samples the rand\_letters}
+\CommentTok{\# with equal probability}
+\CommentTok{\# up to the number of IDs}
+\CommentTok{\# using replacement}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{tr\_masked }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(rand\_letters, }\AttributeTok{size =} \FunctionTok{length}\NormalTok{(id), }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# combine the IDs with the}
+\CommentTok{\# sequence in a data.frame}
+\CommentTok{\#}
+\CommentTok{\# this object would be stored}
+\CommentTok{\# in the Randomization Directory}
+\CommentTok{\# as a .csv file}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{rand\_seq }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{id =}\NormalTok{ id, }\AttributeTok{tr\_masked =}\NormalTok{ tr\_masked)}
+
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# for the sake of example,}
+\CommentTok{\# unmask and examine the }
+\CommentTok{\# allocation. }
+\CommentTok{\#}
+\CommentTok{\# Pretend letters A and T }
+\CommentTok{\# are for placebo}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{tr }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(tr\_masked }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"T"}\NormalTok{),}\StringTok{"Placebo"}\NormalTok{,}\StringTok{"Treatment"}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(tr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tr
+##   Placebo Treatment 
+##       506       494
+\end{verbatim}
+
+In this example, 51\% of the participants were allocated to placebom and 49\% were allocated to treatment --- a pretty good balance! This would be expected given the trial's large size.
+
+Try running the code above with \texttt{nobs\ \textless{}-\ 80} to see what a typical randomization looks like:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# From the above example}
+\CommentTok{\# create a function}
+\CommentTok{\# that takes as arguments}
+\CommentTok{\# a vector of IDs and}
+\CommentTok{\# masked treatment letters}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{randomize\_simple }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(ids, letters) \{}
+\NormalTok{  tr\_masked }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(rand\_letters, }\AttributeTok{size =} \FunctionTok{length}\NormalTok{(id), }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+  \FunctionTok{return}\NormalTok{( }\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{id =}\NormalTok{ ids, }\AttributeTok{tr\_masked =}\NormalTok{ tr\_masked) )}
+\NormalTok{\}}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# setting size, creating IDs}
+\CommentTok{\# and identifying letters,}
+\CommentTok{\# as in the above example}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{nobs }\OtherTok{\textless{}{-}} \DecValTok{80}
+\NormalTok{id }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"ID"}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\NormalTok{nobs)}
+\NormalTok{rand\_letters }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"T"}\NormalTok{,}\StringTok{"V"}\NormalTok{)}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# generating a new sequence}
+\CommentTok{\# using the randomize\_simple()}
+\CommentTok{\# function}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{rand\_seq2 }\OtherTok{\textless{}{-}} \FunctionTok{randomize\_simple}\NormalTok{(}\AttributeTok{ids =}\NormalTok{ id, }\AttributeTok{letters =}\NormalTok{ rand\_letters)}
+\NormalTok{rand\_seq2}\SpecialCharTok{$}\NormalTok{tr }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(rand\_seq2}\SpecialCharTok{$}\NormalTok{tr\_masked }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"T"}\NormalTok{),}\StringTok{"Placebo"}\NormalTok{,}\StringTok{"Treatment"}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(rand\_seq2}\SpecialCharTok{$}\NormalTok{tr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   Placebo Treatment 
+##        48        32
+\end{verbatim}
+
+With the same seed, 48/80 (60\%) are allocated to placebo, which is not ideal. Blocking can prevent chance imbalances.
 
 \hypertarget{blocked-randomization}{%
 \section{Blocked randomization}\label{blocked-randomization}}
@@ -297,16 +512,21 @@ At least 3 team members should have access to unmasked materials at all times\st
 \hypertarget{stratified-randomization}{%
 \section{Stratified randomization}\label{stratified-randomization}}
 
-\hypertarget{unequal-allocation}{%
-\section{Unequal allocation}\label{unequal-allocation}}
+\hypertarget{matched-randomization}{%
+\section{Matched randomization}\label{matched-randomization}}
 
-\hypertarget{diagnostics}{%
-\chapter{Randomization Diagnostics}\label{diagnostics}}
+\hypertarget{randomizationdiagnostics}{%
+\chapter{Randomization Diagnostics}\label{randomizationdiagnostics}}
 
 \emph{Contributors: Ben Arnold}
 
 \hypertarget{masking}{%
 \chapter{Masking}\label{masking}}
+
+\emph{Contributors: Ben Arnold}
+
+\hypertarget{allocationconcealment}{%
+\chapter{Allocation Concealment}\label{allocationconcealment}}
 
 \emph{Contributors: Ben Arnold}
 

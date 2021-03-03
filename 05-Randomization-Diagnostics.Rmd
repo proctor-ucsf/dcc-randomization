@@ -1,5 +1,5 @@
 
-# Randomization Diagnostics {#diagnostics}
+# Randomization Diagnostics {#randomizationdiagnostics}
 
 _Contributors: Ben Arnold_
 

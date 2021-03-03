@@ -5,9 +5,11 @@ overview
 computing
 directory
 sequences
-unrestricted-randomization
+introduction
+simple-randomization
 blocked-randomization
 stratified-randomization
-unequal-allocation
-diagnostics
+matched-randomization
+randomizationdiagnostics
 masking
+allocationconcealment
