@@ -1,0 +1,14 @@
+tab:randomizationsteps
+tab:dirchecklist
+tab:unmaskeddir
+overview
+computing
+directory
+sequences
+unrestricted-randomization
+blocked-randomization
+stratified-randomization
+unequal-allocation
+diagnostics
+masking
+allocationconcealment
