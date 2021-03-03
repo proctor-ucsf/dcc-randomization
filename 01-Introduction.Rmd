@@ -27,7 +27,7 @@ Table: (\#tab:randomizationsteps) Randomization Steps
 
 This short guide will cover details for each step, and will elaborate in some areas where appropriate (e.g., providing examples of how to generate stratified or blocked sequences).
 
-Additionally, the guide will cover the important topics of Masking and Allocation concealment, which are key steps to ensuring the validity of the randomization sequence in the conduct of the trial. 
+Additionally, the guide will cover the important topics of [Masking](#masking) and [Allocation Concealment](#allocationconcealment), which are key steps to ensuring the validity of the randomization sequence in the conduct of the trial. 
 
 This guide does not currently include guidance for advanced topics, such as response-adaptive allocation.
 
