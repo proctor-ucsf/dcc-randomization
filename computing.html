@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 A few comments on computing | Francis I. Proctor Foundation   Guide to Randomization</title>
+  <meta name="description" content="This is a short guide for best (essential!) practices for trial randomization." />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 A few comments on computing | Francis I. Proctor Foundation   Guide to Randomization" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a short guide for best (essential!) practices for trial randomization." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 A few comments on computing | Francis I. Proctor Foundation   Guide to Randomization" />
+  
+  <meta name="twitter:description" content="This is a short guide for best (essential!) practices for trial randomization." />
+  
+
+<meta name="author" content="Contributors: Ben Arnold" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="directory.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guide to Randomization</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview and Introduction</a></li>
+<li class="chapter" data-level="2" data-path="computing.html"><a href="computing.html"><i class="fa fa-check"></i><b>2</b> A few comments on computing</a></li>
+<li class="chapter" data-level="3" data-path="directory.html"><a href="directory.html"><i class="fa fa-check"></i><b>3</b> Creating a Randomization Directory</a></li>
+<li class="chapter" data-level="4" data-path="sequences.html"><a href="sequences.html"><i class="fa fa-check"></i><b>4</b> Generating Randomization Sequences</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sequences.html"><a href="sequences.html#unrestricted-randomization"><i class="fa fa-check"></i><b>4.1</b> Unrestricted randomization</a></li>
+<li class="chapter" data-level="4.2" data-path="sequences.html"><a href="sequences.html#blocked-randomization"><i class="fa fa-check"></i><b>4.2</b> Blocked randomization</a></li>
+<li class="chapter" data-level="4.3" data-path="sequences.html"><a href="sequences.html#stratified-randomization"><i class="fa fa-check"></i><b>4.3</b> Stratified randomization</a></li>
+<li class="chapter" data-level="4.4" data-path="sequences.html"><a href="sequences.html#unequal-allocation"><i class="fa fa-check"></i><b>4.4</b> Unequal allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="diagnostics.html"><a href="diagnostics.html"><i class="fa fa-check"></i><b>5</b> Randomization Diagnostics</a></li>
+<li class="chapter" data-level="6" data-path="masking.html"><a href="masking.html"><i class="fa fa-check"></i><b>6</b> Masking</a></li>
+<li class="chapter" data-level="7" data-path="allocationconcealment.html"><a href="allocationconcealment.html"><i class="fa fa-check"></i><b>7</b> Allocation Concealment</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Francis I. Proctor Foundation <br> Guide to Randomization</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="computing" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> A few comments on computing</h1>
+<p><em>Contributors: Ben Arnold</em></p>
+<p>Like all of our data science workflows, generating a random sequence needs to be transparent and reproducible. See Proctor’s handbook on data science. The principles we describe there are germane for randomization sequences as well!</p>
+<p><a href="https://proctor-ucsf.github.io/dcc-handbook/intro.html" class="uri">https://proctor-ucsf.github.io/dcc-handbook/intro.html</a></p>
+<p>All of the examples in this guide use R software. There are surely many other effective ways to generate sequences in other software, but R includes many convenient functions for pseudo-random number generation.</p>
+<p>Our advice for generating the sequence is to not rely on any packages beyond base <code>R</code>. The R language and packages evolve rapidly. Using base R ensures that functions will behave consistently over time. For example, many tidyverse packages such as the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package are incredible for data manipulation. <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> includes many convenient pseudo-random sampling routines, but as of this writing its syntax rapidly evolves – some commonly used functions seem to be replaced or deprecated every few months. This makes the code more fragile. As an exception, we do use <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> for graphics in randomization diagnostics examples below.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="directory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["dcc-randomization.pdf", "dcc-randomization.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
