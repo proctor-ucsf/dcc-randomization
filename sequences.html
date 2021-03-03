@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="directory.html"/>
-<link rel="next" href="diagnostics.html"/>
+<link rel="next" href="randomizationdiagnostics.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,6 +55,69 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -79,12 +142,13 @@
 <li class="chapter" data-level="3" data-path="directory.html"><a href="directory.html"><i class="fa fa-check"></i><b>3</b> Creating a Randomization Directory</a></li>
 <li class="chapter" data-level="4" data-path="sequences.html"><a href="sequences.html"><i class="fa fa-check"></i><b>4</b> Generating Randomization Sequences</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sequences.html"><a href="sequences.html#unrestricted-randomization"><i class="fa fa-check"></i><b>4.1</b> Unrestricted randomization</a></li>
-<li class="chapter" data-level="4.2" data-path="sequences.html"><a href="sequences.html#blocked-randomization"><i class="fa fa-check"></i><b>4.2</b> Blocked randomization</a></li>
-<li class="chapter" data-level="4.3" data-path="sequences.html"><a href="sequences.html#stratified-randomization"><i class="fa fa-check"></i><b>4.3</b> Stratified randomization</a></li>
-<li class="chapter" data-level="4.4" data-path="sequences.html"><a href="sequences.html#unequal-allocation"><i class="fa fa-check"></i><b>4.4</b> Unequal allocation</a></li>
+<li class="chapter" data-level="4.1" data-path="sequences.html"><a href="sequences.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="sequences.html"><a href="sequences.html#simple-randomization"><i class="fa fa-check"></i><b>4.2</b> Simple randomization</a></li>
+<li class="chapter" data-level="4.3" data-path="sequences.html"><a href="sequences.html#blocked-randomization"><i class="fa fa-check"></i><b>4.3</b> Blocked randomization</a></li>
+<li class="chapter" data-level="4.4" data-path="sequences.html"><a href="sequences.html#stratified-randomization"><i class="fa fa-check"></i><b>4.4</b> Stratified randomization</a></li>
+<li class="chapter" data-level="4.5" data-path="sequences.html"><a href="sequences.html#matched-randomization"><i class="fa fa-check"></i><b>4.5</b> Matched randomization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="diagnostics.html"><a href="diagnostics.html"><i class="fa fa-check"></i><b>5</b> Randomization Diagnostics</a></li>
+<li class="chapter" data-level="5" data-path="randomizationdiagnostics.html"><a href="randomizationdiagnostics.html"><i class="fa fa-check"></i><b>5</b> Randomization Diagnostics</a></li>
 <li class="chapter" data-level="6" data-path="masking.html"><a href="masking.html"><i class="fa fa-check"></i><b>6</b> Masking</a></li>
 <li class="chapter" data-level="7" data-path="allocationconcealment.html"><a href="allocationconcealment.html"><i class="fa fa-check"></i><b>7</b> Allocation Concealment</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -111,18 +175,170 @@
 <div id="sequences" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Generating Randomization Sequences</h1>
 <p><em>Contributors: Ben Arnold</em></p>
-<div id="unrestricted-randomization" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Unrestricted randomization</h2>
+<div id="introduction" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>This chapter includes guides for specific types of randomization. It includes code snippets to illustrate the different types of randomization. In the examples below, we focus on trials with two groups and equal allocation. Multi-arm trials are conceptually similar. Unequal allocation is similar as well, but raises particular issues around masking, described in the <a href="masking.html#masking">Masking</a> chapter.</p>
+<p>In all of the examples, below, we will use masked examples with 2 letter per arm (so 4 letters total). The rationale for 2+ letters per arm is that if a single letter is accidentally unmasked, then the entire trial will not be unmasked.</p>
+<p>These examples will carry forward into the next chapter on <a href="randomizationdiagnostics.html#randomizationdiagnostics">Randomization Diagnostics</a>. The template files stored in this guide’s Github respository (<strong>TBD</strong>) provide complete examples of how to put everything together.</p>
+<p><strong>Essential background reading:</strong></p>
+<p>Altman, D. G. &amp; Martin Bland, J. Treatment allocation in controlled trials: why randomise? BMJ 318, 1209–1209 (1999). <a href="https://pubmed.ncbi.nlm.nih.gov/10221955/" class="uri">https://pubmed.ncbi.nlm.nih.gov/10221955/</a> <span class="citation">[<a href="#ref-Altman1999-zc" role="doc-biblioref">1</a>]</span></p>
+<p>Altman, D. G. &amp; Bland, J. M. How to randomise. BMJ 319, 703–704 (1999). <a href="https://pubmed.ncbi.nlm.nih.gov/10480833/" class="uri">https://pubmed.ncbi.nlm.nih.gov/10480833/</a> <span class="citation">[<a href="#ref-Altman1999-da" role="doc-biblioref">2</a>]</span></p>
+<p>Schulz, K. F. &amp; Grimes, D. A. Generation of allocation sequences in randomised trials: chance, not choice. Lancet 359, 515–519 (2002). <a href="https://pubmed.ncbi.nlm.nih.gov/11853818/" class="uri">https://pubmed.ncbi.nlm.nih.gov/11853818/</a> <span class="citation">[<a href="#ref-Schulz2002-jf" role="doc-biblioref">3</a>]</span></p>
 </div>
-<div id="blocked-randomization" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Blocked randomization</h2>
+<div id="simple-randomization" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Simple randomization</h2>
+<blockquote>
+<p><em>No other allocation generation approach, irrespective of its complexity and sophistication, surpasses the unpredictability and bias prevention of simple randomisation.</em></p>
+</blockquote>
+<p>High praise from masters of clinical trials! <span class="citation">[<a href="#ref-Schulz2002-jf" role="doc-biblioref">3</a>]</span> Simple (unrestricted) randomization is the purest form of randomization. Patients (or clusters) are allocated to each arm with a known (usually equal) probability. For larger trials (hundreds of units) without specific design considerations this might be just the right tool. Many trials led by Proctor faculty favor simple randomization.</p>
+<p>Schulz and Grimes highlight a downside, which can be particularly germane for smaller trials. With simple randomization, at any point in the sequence the numbers of patients allocated to each treatment group will probably differ, which is not a major problem in terms of statistical efficiency (though perfectly balanced is statistically ideal). For a two-arm trial, the chance of pronounced imbalance becomes negligible with trial sizes greater than 200 <span class="citation">[<a href="#ref-Schulz2002-jf" role="doc-biblioref">3</a>,<a href="#ref-Lachin1988-gg" role="doc-biblioref">4</a>]</span>. But, if 20 participants are randomized with equal probability to two treatment groups, the chance of a 12:8 split (i.e., 60% A, 40% B) or worse is approximately 50%. For 100 participants, the chance of the same ratio (60:40 split) or worse is only 5% <span class="citation">[<a href="#ref-Friedman2015-ri" role="doc-biblioref">5</a>]</span>. For smaller trials and multi-center trials this chance imbalance could be a problem, and so many trials use blocking and/or stratification in the randomization sequence.</p>
+<p>Here is an example of generating a simple randomization sequence:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sequences.html#cb1-1"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-2"><a href="sequences.html#cb1-2"></a><span class="co"># Example of simple randomization</span></span>
+<span id="cb1-3"><a href="sequences.html#cb1-3"></a><span class="co">#</span></span>
+<span id="cb1-4"><a href="sequences.html#cb1-4"></a><span class="co"># 2 arm trial</span></span>
+<span id="cb1-5"><a href="sequences.html#cb1-5"></a><span class="co"># 2 letters per arm (masked)</span></span>
+<span id="cb1-6"><a href="sequences.html#cb1-6"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-7"><a href="sequences.html#cb1-7"></a></span>
+<span id="cb1-8"><a href="sequences.html#cb1-8"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-9"><a href="sequences.html#cb1-9"></a><span class="co"># create a list of 1000 IDs.</span></span>
+<span id="cb1-10"><a href="sequences.html#cb1-10"></a><span class="co"># in a real trial, we may already</span></span>
+<span id="cb1-11"><a href="sequences.html#cb1-11"></a><span class="co"># have a list or sampling frame </span></span>
+<span id="cb1-12"><a href="sequences.html#cb1-12"></a><span class="co"># to work with </span></span>
+<span id="cb1-13"><a href="sequences.html#cb1-13"></a><span class="co">#</span></span>
+<span id="cb1-14"><a href="sequences.html#cb1-14"></a><span class="co"># pro tip: always ensure your IDs start with a character</span></span>
+<span id="cb1-15"><a href="sequences.html#cb1-15"></a><span class="co"># to prevent accidental conversion to numeric variables!</span></span>
+<span id="cb1-16"><a href="sequences.html#cb1-16"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-17"><a href="sequences.html#cb1-17"></a>nobs &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb1-18"><a href="sequences.html#cb1-18"></a>id &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;ID&quot;</span>,<span class="dv">1</span><span class="op">:</span>nobs)</span>
+<span id="cb1-19"><a href="sequences.html#cb1-19"></a></span>
+<span id="cb1-20"><a href="sequences.html#cb1-20"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-21"><a href="sequences.html#cb1-21"></a><span class="co"># Identify letters for</span></span>
+<span id="cb1-22"><a href="sequences.html#cb1-22"></a><span class="co"># the randomization</span></span>
+<span id="cb1-23"><a href="sequences.html#cb1-23"></a><span class="co">#</span></span>
+<span id="cb1-24"><a href="sequences.html#cb1-24"></a><span class="co"># In a masked trial, we would</span></span>
+<span id="cb1-25"><a href="sequences.html#cb1-25"></a><span class="co"># start with placeholder letters</span></span>
+<span id="cb1-26"><a href="sequences.html#cb1-26"></a><span class="co"># to vet the sequence generation</span></span>
+<span id="cb1-27"><a href="sequences.html#cb1-27"></a><span class="co"># and then change them for the</span></span>
+<span id="cb1-28"><a href="sequences.html#cb1-28"></a><span class="co"># final randomization.</span></span>
+<span id="cb1-29"><a href="sequences.html#cb1-29"></a><span class="co"># See step 3 in the Overview</span></span>
+<span id="cb1-30"><a href="sequences.html#cb1-30"></a><span class="co">#</span></span>
+<span id="cb1-31"><a href="sequences.html#cb1-31"></a><span class="co"># In this example, we use</span></span>
+<span id="cb1-32"><a href="sequences.html#cb1-32"></a><span class="co"># A, B, T, V</span></span>
+<span id="cb1-33"><a href="sequences.html#cb1-33"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-34"><a href="sequences.html#cb1-34"></a>rand_letters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;V&quot;</span>)</span>
+<span id="cb1-35"><a href="sequences.html#cb1-35"></a></span>
+<span id="cb1-36"><a href="sequences.html#cb1-36"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-37"><a href="sequences.html#cb1-37"></a><span class="co"># set a seed</span></span>
+<span id="cb1-38"><a href="sequences.html#cb1-38"></a><span class="co"># </span></span>
+<span id="cb1-39"><a href="sequences.html#cb1-39"></a><span class="co"># this is essential for </span></span>
+<span id="cb1-40"><a href="sequences.html#cb1-40"></a><span class="co"># creating a reproducible </span></span>
+<span id="cb1-41"><a href="sequences.html#cb1-41"></a><span class="co"># sequence!  After vetting the</span></span>
+<span id="cb1-42"><a href="sequences.html#cb1-42"></a><span class="co"># randomization with the broader</span></span>
+<span id="cb1-43"><a href="sequences.html#cb1-43"></a><span class="co"># study team (steps 4-5 in the Overview), </span></span>
+<span id="cb1-44"><a href="sequences.html#cb1-44"></a><span class="co"># we can change the seed to create a new</span></span>
+<span id="cb1-45"><a href="sequences.html#cb1-45"></a><span class="co"># (protected) sequence</span></span>
+<span id="cb1-46"><a href="sequences.html#cb1-46"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-47"><a href="sequences.html#cb1-47"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-48"><a href="sequences.html#cb1-48"></a></span>
+<span id="cb1-49"><a href="sequences.html#cb1-49"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-50"><a href="sequences.html#cb1-50"></a><span class="co"># generate the sequence</span></span>
+<span id="cb1-51"><a href="sequences.html#cb1-51"></a><span class="co">#</span></span>
+<span id="cb1-52"><a href="sequences.html#cb1-52"></a><span class="co"># the sample() function</span></span>
+<span id="cb1-53"><a href="sequences.html#cb1-53"></a><span class="co"># samples the rand_letters</span></span>
+<span id="cb1-54"><a href="sequences.html#cb1-54"></a><span class="co"># with equal probability</span></span>
+<span id="cb1-55"><a href="sequences.html#cb1-55"></a><span class="co"># up to the number of IDs</span></span>
+<span id="cb1-56"><a href="sequences.html#cb1-56"></a><span class="co"># using replacement</span></span>
+<span id="cb1-57"><a href="sequences.html#cb1-57"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-58"><a href="sequences.html#cb1-58"></a>tr_masked &lt;-<span class="st"> </span><span class="kw">sample</span>(rand_letters, <span class="dt">size =</span> <span class="kw">length</span>(id), <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1-59"><a href="sequences.html#cb1-59"></a></span>
+<span id="cb1-60"><a href="sequences.html#cb1-60"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-61"><a href="sequences.html#cb1-61"></a><span class="co"># combine the IDs with the</span></span>
+<span id="cb1-62"><a href="sequences.html#cb1-62"></a><span class="co"># sequence in a data.frame</span></span>
+<span id="cb1-63"><a href="sequences.html#cb1-63"></a><span class="co">#</span></span>
+<span id="cb1-64"><a href="sequences.html#cb1-64"></a><span class="co"># this object would be stored</span></span>
+<span id="cb1-65"><a href="sequences.html#cb1-65"></a><span class="co"># in the Randomization Directory</span></span>
+<span id="cb1-66"><a href="sequences.html#cb1-66"></a><span class="co"># as a .csv file</span></span>
+<span id="cb1-67"><a href="sequences.html#cb1-67"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-68"><a href="sequences.html#cb1-68"></a>rand_seq &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id =</span> id, <span class="dt">tr_masked =</span> tr_masked)</span>
+<span id="cb1-69"><a href="sequences.html#cb1-69"></a></span>
+<span id="cb1-70"><a href="sequences.html#cb1-70"></a></span>
+<span id="cb1-71"><a href="sequences.html#cb1-71"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-72"><a href="sequences.html#cb1-72"></a><span class="co"># for the sake of example,</span></span>
+<span id="cb1-73"><a href="sequences.html#cb1-73"></a><span class="co"># unmask and examine the </span></span>
+<span id="cb1-74"><a href="sequences.html#cb1-74"></a><span class="co"># allocation. </span></span>
+<span id="cb1-75"><a href="sequences.html#cb1-75"></a><span class="co">#</span></span>
+<span id="cb1-76"><a href="sequences.html#cb1-76"></a><span class="co"># Pretend letters A and T </span></span>
+<span id="cb1-77"><a href="sequences.html#cb1-77"></a><span class="co"># are for placebo</span></span>
+<span id="cb1-78"><a href="sequences.html#cb1-78"></a><span class="co">#----------------------------</span></span>
+<span id="cb1-79"><a href="sequences.html#cb1-79"></a>tr &lt;-<span class="st"> </span><span class="kw">ifelse</span>(tr_masked <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>),<span class="st">&quot;Placebo&quot;</span>,<span class="st">&quot;Treatment&quot;</span>)</span>
+<span id="cb1-80"><a href="sequences.html#cb1-80"></a><span class="kw">table</span>(tr)</span></code></pre></div>
+<pre><code>## tr
+##   Placebo Treatment 
+##       506       494</code></pre>
+<p>In this example, 51% of the participants were allocated to placebom and 49% were allocated to treatment — a pretty good balance! This would be expected given the trial’s large size.</p>
+<p>Try running the code above with <code>nobs &lt;- 80</code> to see what a typical randomization looks like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="sequences.html#cb3-1"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-2"><a href="sequences.html#cb3-2"></a><span class="co"># From the above example</span></span>
+<span id="cb3-3"><a href="sequences.html#cb3-3"></a><span class="co"># create a function</span></span>
+<span id="cb3-4"><a href="sequences.html#cb3-4"></a><span class="co"># that takes as arguments</span></span>
+<span id="cb3-5"><a href="sequences.html#cb3-5"></a><span class="co"># a vector of IDs and</span></span>
+<span id="cb3-6"><a href="sequences.html#cb3-6"></a><span class="co"># masked treatment letters</span></span>
+<span id="cb3-7"><a href="sequences.html#cb3-7"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-8"><a href="sequences.html#cb3-8"></a>randomize_simple &lt;-<span class="st"> </span><span class="cf">function</span>(ids, letters) {</span>
+<span id="cb3-9"><a href="sequences.html#cb3-9"></a>  tr_masked &lt;-<span class="st"> </span><span class="kw">sample</span>(rand_letters, <span class="dt">size =</span> <span class="kw">length</span>(id), <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb3-10"><a href="sequences.html#cb3-10"></a>  <span class="kw">return</span>( <span class="kw">data.frame</span>(<span class="dt">id =</span> ids, <span class="dt">tr_masked =</span> tr_masked) )</span>
+<span id="cb3-11"><a href="sequences.html#cb3-11"></a>}</span>
+<span id="cb3-12"><a href="sequences.html#cb3-12"></a></span>
+<span id="cb3-13"><a href="sequences.html#cb3-13"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-14"><a href="sequences.html#cb3-14"></a><span class="co"># setting size, creating IDs</span></span>
+<span id="cb3-15"><a href="sequences.html#cb3-15"></a><span class="co"># and identifying letters,</span></span>
+<span id="cb3-16"><a href="sequences.html#cb3-16"></a><span class="co"># as in the above example</span></span>
+<span id="cb3-17"><a href="sequences.html#cb3-17"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-18"><a href="sequences.html#cb3-18"></a>nobs &lt;-<span class="st"> </span><span class="dv">80</span></span>
+<span id="cb3-19"><a href="sequences.html#cb3-19"></a>id &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;ID&quot;</span>,<span class="dv">1</span><span class="op">:</span>nobs)</span>
+<span id="cb3-20"><a href="sequences.html#cb3-20"></a>rand_letters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;V&quot;</span>)</span>
+<span id="cb3-21"><a href="sequences.html#cb3-21"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-22"><a href="sequences.html#cb3-22"></a><span class="co"># generating a new sequence</span></span>
+<span id="cb3-23"><a href="sequences.html#cb3-23"></a><span class="co"># using the randomize_simple()</span></span>
+<span id="cb3-24"><a href="sequences.html#cb3-24"></a><span class="co"># function</span></span>
+<span id="cb3-25"><a href="sequences.html#cb3-25"></a><span class="co">#----------------------------</span></span>
+<span id="cb3-26"><a href="sequences.html#cb3-26"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-27"><a href="sequences.html#cb3-27"></a>rand_seq2 &lt;-<span class="st"> </span><span class="kw">randomize_simple</span>(<span class="dt">ids =</span> id, <span class="dt">letters =</span> rand_letters)</span>
+<span id="cb3-28"><a href="sequences.html#cb3-28"></a>rand_seq2<span class="op">$</span>tr &lt;-<span class="st"> </span><span class="kw">ifelse</span>(rand_seq2<span class="op">$</span>tr_masked <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>),<span class="st">&quot;Placebo&quot;</span>,<span class="st">&quot;Treatment&quot;</span>)</span>
+<span id="cb3-29"><a href="sequences.html#cb3-29"></a><span class="kw">table</span>(rand_seq2<span class="op">$</span>tr)</span></code></pre></div>
+<pre><code>## 
+##   Placebo Treatment 
+##        48        32</code></pre>
+<p>With the same seed, 48/80 (60%) are allocated to placebo, which is not ideal. Blocking can prevent chance imbalances.</p>
 </div>
-<div id="stratified-randomization" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Stratified randomization</h2>
+<div id="blocked-randomization" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Blocked randomization</h2>
 </div>
-<div id="unequal-allocation" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Unequal allocation</h2>
+<div id="stratified-randomization" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Stratified randomization</h2>
+</div>
+<div id="matched-randomization" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Matched randomization</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Altman1999-zc">
+<p>1. Altman DG, Bland MJ. Treatment allocation in controlled trials: Why randomise? BMJ. 1999;318: 1209–1209. </p>
+</div>
+<div id="ref-Altman1999-da">
+<p>2. Altman DG, Bland JM. How to randomise. BMJ. 1999;319: 703–704. </p>
+</div>
+<div id="ref-Schulz2002-jf">
+<p>3. Schulz KF, Grimes DA. Generation of allocation sequences in randomised trials: Chance, not choice. Lancet. 2002;359: 515–519. </p>
+</div>
+<div id="ref-Lachin1988-gg">
+<p>4. Lachin JM. Properties of simple randomization in clinical trials. Control Clin Trials. 1988;9: 312–326. </p>
+</div>
+<div id="ref-Friedman2015-ri">
+<p>5. Friedman LM, Furberg CD, DeMets DL, Reboussin DM, Granger CB. Fundamentals of clinical trials. Springer, Cham; 2015. </p>
 </div>
 </div>
             </section>
@@ -131,7 +347,7 @@
         </div>
       </div>
 <a href="directory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="randomizationdiagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
