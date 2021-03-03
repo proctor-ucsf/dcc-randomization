@@ -4,14 +4,163 @@
 _Contributors: Ben Arnold_
 
 
-## Unrestricted randomization
+## Introduction
 
+This chapter includes guides for specific types of randomization. It includes code snippets to illustrate the different types of randomization.  In the examples below, we focus on trials with two groups and equal allocation. Multi-arm trials are conceptually similar.  Unequal allocation is similar as well, but raises particular issues around masking, described in the [Masking](#masking) chapter.
+
+In all of the examples, below, we will use masked examples with 2 letter per arm (so 4 letters total).  The rationale for 2+ letters per arm is that if a single letter is accidentally unmasked, then the entire trial will not be unmasked. 
+
+These examples will carry forward into the next chapter on [Randomization Diagnostics](#randomizationdiagnostics). The template files stored in this guide's Github respository (**TBD**) provide complete examples of how to put everything together.
+
+**Essential background reading:**
+
+Altman, D. G. & Martin Bland, J. Treatment allocation in controlled trials: why randomise? BMJ 318, 1209–1209 (1999). https://pubmed.ncbi.nlm.nih.gov/10221955/ [@Altman1999-zc]
+
+Altman, D. G. & Bland, J. M. How to randomise. BMJ 319, 703–704 (1999). https://pubmed.ncbi.nlm.nih.gov/10480833/ [@Altman1999-da]
+
+Schulz, K. F. & Grimes, D. A. Generation of allocation sequences in randomised trials: chance, not choice. Lancet 359, 515–519 (2002). https://pubmed.ncbi.nlm.nih.gov/11853818/ [@Schulz2002-jf]
+
+
+## Simple randomization
+
+> _No other allocation generation approach, irrespective of its complexity and sophistication, surpasses the unpredictability and bias prevention of simple randomisation._
+
+High praise from masters of clinical trials! [@Schulz2002-jf] Simple (unrestricted) randomization is the purest form of randomization. Patients (or clusters) are allocated to each arm with a known (usually equal) probability. For larger trials (hundreds of units) without specific design considerations this might be just the right tool. Many trials led by Proctor faculty favor simple randomization. 
+
+Schulz and Grimes highlight a downside, which can be particularly germane for smaller trials.  With simple randomization, at any point in the sequence the numbers of patients allocated to each treatment group will probably differ, which is not a major problem in terms of statistical efficiency (though perfectly balanced is statistically ideal).  For a two-arm trial, the chance of pronounced imbalance becomes negligible with trial sizes greater than 200 [@Lachin1988-gg; @Schulz2002-jf]. But, if 20 participants are randomized with equal probability to two treatment groups, the chance of a 12:8 split (i.e., 60% A, 40% B) or worse is approximately 50%. For 100 participants, the chance of the same ratio (60:40 split) or worse is only 5% [@Friedman2015-ri]. For smaller trials and multi-center trials this chance imbalance could be a problem, and so many trials use blocking and/or stratification in the randomization sequence.  
+
+Here is an example of generating a simple randomization sequence:
+
+```{r }
+#----------------------------
+# Example of simple randomization
+#
+# 2 arm trial
+# 2 letters per arm (masked)
+#----------------------------
+
+#----------------------------
+# create a list of 1000 IDs.
+# in a real trial, we may already
+# have a list or sampling frame 
+# to work with 
+#
+# pro tip: always ensure your IDs start with a character
+# to prevent accidental conversion to numeric variables!
+#----------------------------
+nobs <- 1000
+id <- paste0("ID",1:nobs)
+
+#----------------------------
+# Identify letters for
+# the randomization
+#
+# In a masked trial, we would
+# start with placeholder letters
+# to vet the sequence generation
+# and then change them for the
+# final randomization.
+# See step 3 in the Overview
+#
+# In this example, we use
+# A, B, T, V
+#----------------------------
+rand_letters <- c("A","B","T","V")
+
+#----------------------------
+# set a seed
+# 
+# this is essential for 
+# creating a reproducible 
+# sequence!  After vetting the
+# randomization with the broader
+# study team (steps 4-5 in the Overview), 
+# we can change the seed to create a new
+# (protected) sequence
+#----------------------------
+set.seed(123)
+
+#----------------------------
+# generate the sequence
+#
+# the sample() function
+# samples the rand_letters
+# with equal probability
+# up to the number of IDs
+# using replacement
+#----------------------------
+tr_masked <- sample(rand_letters, size = length(id), replace = TRUE)
+
+#----------------------------
+# combine the IDs with the
+# sequence in a data.frame
+#
+# this object would be stored
+# in the Randomization Directory
+# as a .csv file
+#----------------------------
+rand_seq <- data.frame(id = id, tr_masked = tr_masked)
+
+
+#----------------------------
+# for the sake of example,
+# unmask and examine the 
+# allocation. 
+#
+# Pretend letters A and T 
+# are for placebo
+#----------------------------
+tr <- ifelse(tr_masked %in% c("A","T"),"Placebo","Treatment")
+table(tr)
+
+```
+
+In this example, 51% of the participants were allocated to placebom and 49% were allocated to treatment  — a pretty good balance! This would be expected given the trial's large size.  
+
+Try running the code above with `nobs <- 80` to see what a typical randomization looks like:
+
+```{r simple randomization }
+#----------------------------
+# From the above example
+# create a function
+# that takes as arguments
+# a vector of IDs and
+# masked treatment letters
+#----------------------------
+randomize_simple <- function(ids, letters) {
+  tr_masked <- sample(rand_letters, size = length(id), replace = TRUE)
+  return( data.frame(id = ids, tr_masked = tr_masked) )
+}
+
+#----------------------------
+# setting size, creating IDs
+# and identifying letters,
+# as in the above example
+#----------------------------
+nobs <- 80
+id <- paste0("ID",1:nobs)
+rand_letters <- c("A","B","T","V")
+#----------------------------
+# generating a new sequence
+# using the randomize_simple()
+# function
+#----------------------------
+set.seed(123)
+rand_seq2 <- randomize_simple(ids = id, letters = rand_letters)
+rand_seq2$tr <- ifelse(rand_seq2$tr_masked %in% c("A","T"),"Placebo","Treatment")
+table(rand_seq2$tr)
+
+```
+
+With the same seed, 48/80 (60%) are allocated to placebo, which is not ideal.  Blocking can prevent chance imbalances.
 
 ## Blocked randomization
+
+
+
 
 
 ## Stratified randomization
 
 
-## Unequal allocation
-
+## Matched randomization
