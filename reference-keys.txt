@@ -7,7 +7,7 @@ directory
 sequences
 introduction
 simple-randomization
-blocked-randomization
+blockedrandomization
 stratified-randomization
 matched-randomization
 randomizationdiagnostics
