@@ -356,7 +356,7 @@ Blocking with randomly permuted blocks of size 8 or 12 enforces excellent balanc
 
 ## Matched randomization
 
-
+_To be written_
 
 
 
